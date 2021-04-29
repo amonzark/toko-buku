@@ -1,0 +1,21 @@
+<html>
+    <head><h1>Edit data</h1></head>
+    <body>
+        <form action="/update" method="post">
+            <input type="hidden" value="<%= buku.id_buku %>" name="id_buku" required>
+            <div class="form-grup">
+                <label for="name">Nama Buku:</label>
+                <input type="text" class="form-control" id="nama_buku" placeholder="Masukkan Nama Buku" value="<%= buku.nama_buku %>" name="nama_buku" required>
+            </div>
+            <div class="form-grup">
+                <label for="name">Harga ($):</label>
+                <input type="number" class="form-control" id="harga" placeholder="Masukkan Harga" value="<%= buku.harga %>" name="harga" required>
+            </div>
+            <div class="form-grup">
+                <label for="name">Stok:</label>
+                <input type="number" class="form-control" id="stok" placeholder="Masukkan Stok" value="<%= buku.stok %>" name="stok">
+            </div>
+            <button type="submit" class="btn">submit</button>
+        </form>
+    </body>
+</html>

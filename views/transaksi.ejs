@@ -1,0 +1,25 @@
+<html>
+    <head><h1>Transaksi</h1></head>
+    <body>
+        <form action="/bayar" method="post">
+            <input type="hidden" value="<%= buku.id_buku %>" name="id_buku" required>
+            <div class="form-grup">
+                <label for="name">ID Buku:</label>
+                <label id="id_buku" name="id_buku"><%= buku.id_buku %></label>
+            </div>
+            <div class="form-grup">
+                <label for="name">Nama Buku:</label>
+                <label id="nama_buku" name="nama_buku"><%= buku.nama_buku %></label>
+            </div>
+            <div class="form-grup">
+                <label for="name">Stok:</label>
+                <label id="stok" name="stok"><%= buku.stok %></label>
+            </div>
+            <div class="form-grup">
+                <label for="name">Jumlah:</label>
+                <input type="number" class="form-control" id="jumlah" placeholder="Masukkan Jumlah Pesanan" name="jumlah">
+            </div>
+            <button type="submit" class="btn">Beli</button>
+        </form>
+    </body>
+</html>
