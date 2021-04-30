@@ -138,17 +138,42 @@ app.get('/beli/:bukuId',(req,res)=>{
 
 app.post('/bayar',(req,res)=>{
     const bukuId = req.body.id_buku;
-    const tanggal = Date.now;
-    var setok = req.body.stok;
-    console.log(setok);
-    //var pengurangan = setok - 1;
-    let sql = "update buku SET stok='"+setok+"' where id_buku = "+bukuId;
-    let sql1 = "insert into transaksi SET id_buku='"+bukuId+"', tanggal='"+tanggal;
-    let query = conn.query(sql, sql1, (err, results)=>{
+    const tanggal = new Date().toString();
+    const setok = req.body.stok;
+    const pengurangan = setok - req.body.jumlah;
+    let data = {id_buku: bukuId, tanggal: tanggal};
+    let sql = "update buku SET stok='"+pengurangan+"' where id_buku = "+bukuId;
+    let sql1 = "insert into transaksi SET ?";
+    let query = conn.query(sql, (err, results)=>{
         if(err) throw err;
-        res.redirect('/user_buku');
+        conn.query(sql1, data,(err, results)=>{
+            if(err) throw err;
+            res.redirect('/user_buku');
+        });
     });
-    
+});
+
+//lihat report penjualan
+app.get('/report',(req, res) => {
+    let sql = "SELECT * FROM transaksi";
+    let query = conn.query(sql, (err, rows)=>{
+        if(err) throw err;
+        res.render('admin_report',{
+            title: 'CRUD test',
+            transaksi : rows 
+        });
+    });
+});
+
+app.get('/back',(req, res) => {
+    let sql = "SELECT * FROM buku";
+    let query = conn.query(sql, (err, rows)=>{
+        if(err) throw err;
+        res.render('admin_buku',{
+            title: 'CRUD test',
+            buku : rows 
+        });
+    });
 });
 
 //run localhost
