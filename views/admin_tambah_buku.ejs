@@ -1,0 +1,79 @@
+<html>
+    <head></head>
+    <body>
+        <form action="/save" method="post">
+            <h1>Tambah Buku</h1>
+            <div class="form-grup">
+                
+                <input type="text" class="form-control" id="nama_buku" placeholder="Nama Buku" name="nama_buku" required>
+            </div>
+            <div class="form-grup">
+                
+                <input type="number" class="form-control" id="harga" placeholder="$ Harga" name="harga" required>
+            </div>
+            <div class="form-grup">
+                
+                <input type="number" class="form-control" id="stok" placeholder="Stok Barang" name="stok" required>
+            </div>
+            <input type="submit" class="btn" value="Submit">
+        </form>
+    </body>
+</html>
+
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+        font-family: Arial;
+        color : #A8B5BF;
+        background-image: linear-gradient(200deg, #05080D ,#141A26, #516073);
+        height: 100vh;
+        overflow: hidden;
+    }
+    
+    body h1{
+        position: relative;
+        text-align: center;
+        font-size: 40px;
+        color: #05080D;
+        font-family: cursive;
+        margin: 5px;
+    }
+
+    form{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(81, 96, 115, 0.6);
+        padding: 15px;
+        border-radius: 25px;
+    }
+
+    .btn{
+        background-color: #141A26;
+        border-radius: 20px;
+        color: #A8B5BF;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 25px;
+        margin: 6px 10px;
+        cursor: pointer;
+    }
+
+    div{
+        font-size: 25px;
+        text-align: center;
+        padding: 10px;
+    }
+
+    input{
+        width: 300px;
+        height: 50px;
+        text-align: center;
+        border-radius: 22px;
+        font-size: 20px;
+    }
+    
+</style>

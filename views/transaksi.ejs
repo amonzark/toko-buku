@@ -1,0 +1,88 @@
+<html>
+    <head></head>
+    <body>
+        
+        <form action="/bayar" method="post">
+            <h1>Transaksi</h1>
+            <input type="hidden" value="<%= buku.id_buku %>" name="id_buku" required>
+            <div class="form-grup">
+                <label for="name">ID Buku:</label>
+                <label id="id_buku" name="id_buku"><%= buku.id_buku %></label>
+            </div>
+            <div class="form-grup">
+                <label for="name">Nama Buku:</label>
+                <label id="nama_buku" name="nama_buku"><%= buku.nama_buku %></label>
+            </div>
+            <div class="form-grup">
+                <input type="hidden" value="<%= buku.stok %>" name="stok">
+                <label for="name">Stok:</label>
+                <label id="stok" name="stok"><%= buku.stok %></label>
+            </div>
+            <div class="form-grup">
+                
+                <input type="number" class="form-control" id="jumlah" placeholder="Masukkan Jumlah Pesanan" name="jumlah">
+            </div>
+            <input type="submit" class="btn" value="Beli">
+        </form>
+    </body>
+</html>
+
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+        font-family: Arial;
+        color : #A8B5BF;
+        background-image: linear-gradient(200deg, #05080D ,#141A26, #516073);
+        height: 100vh;
+        overflow: hidden;
+    }
+    
+    body h1{
+        position: relative;
+        text-align: center;
+        font-size: 40px;
+        padding-bottom: 10px;
+        color: #05080D;
+        font-family: cursive;
+        margin: 5px;
+    }
+
+    form{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(81, 96, 115, 0.6);
+        padding: 15px;
+        border-radius: 25px;
+    }
+
+    .btn{
+        background-color: #141A26;
+        border-radius: 20px;
+        color: #A8B5BF;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 25px;
+        margin: 6px 10px;
+        cursor: pointer;
+    }
+
+    div{
+        font-size: 25px;
+        text-align: center;
+        padding: 10px;
+    }
+
+    input{
+        width: 300px;
+        height: 50px;
+        text-align: center;
+        border-radius: 22px;
+        font-size: 20px;
+    }
+    
+    
+</style>
